@@ -1,0 +1,133 @@
+:root {
+  --bg: #fbfaf7;
+  --ink: #1f1d1a;
+  --muted: #8f8a80;
+  --accent: #2f6b4f;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000000;
+    --ink: #ffffff;
+    --muted: #6d6a64;
+    --accent: #2f6b4f;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Georgia, serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+a { color: inherit; }
+a:focus { outline: none; }
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 48px;
+}
+
+.logo { font-weight: 700; text-decoration: none; letter-spacing: .1em; }
+
+nav a {
+  margin-left: 28px;
+  text-decoration: none;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+
+.intro {
+  max-width: 980px;
+  padding: 120px 48px 72px;
+}
+
+.eyebrow {
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+h1 {
+  font-size: 58px;
+  line-height: 1.05;
+  margin: 12px 0 28px;
+  font-weight: 400;
+}
+
+.lead {
+  font-size: 21px;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.actions { margin-top: 36px; }
+
+.btn {
+  display: inline-block;
+  padding: 13px 22px;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 3px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  transition: all .6s linear;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--muted);
+  margin-left: 10px;
+}
+
+.work { padding: 40px 48px 96px; }
+
+h3 {
+  font-size: 15px;
+  font-family: Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 340px);
+  gap: 30px;
+}
+
+.project h4 { font-size: 22px; margin: 18px 0 6px; font-weight: 400; }
+.project p { margin: 0; font-size: 15px; color: var(--muted); }
+.thumb { aspect-ratio: 4 / 3; border-radius: 3px; }
+
+.about {
+  padding: 50px 48px;
+}
+
+.about p { font-size: 19px; }
+
+.contact {
+  padding: 70px 48px 110px;
+}
+
+.contact h3 { font-size: 15px; }
+
+.social { margin-top: 26px; }
+.social a { margin-right: 6px; color: var(--muted); }
+
+footer {
+  padding: 22px 48px;
+  font-size: 12px;
+  color: var(--muted);
+}

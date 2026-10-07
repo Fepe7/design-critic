@@ -1,0 +1,58 @@
+{
+ "skill_name": "design-critic",
+ "evals": [
+  {
+   "id": 1,
+   "name": "landing-looks-ai-made",
+   "prompt": "hey can you check how the landing page I made at evals/fixtures/ai-landing/index.html looks? I have a feeling it looks AI-made and I don't know why",
+   "expected_output": "Critique with visual evidence: detects the missing meta viewport (critical), concrete AI patterns (purple gradient, gradient text, emojis, generic copy, 3 cards), #b0b0b0 contrast, invisible CTA focus, width animation, no reduced-motion. HTML report in English. Proposes fixes and asks before applying them.",
+   "files": [
+    "evals/fixtures/ai-landing/index.html"
+   ],
+   "assertions": [
+    "Flags the missing <meta viewport> as a critical/serious mobile problem",
+    "Names at least 3 concrete 'AI design' patterns (purple-pink gradient, gradient text, emojis as icons, generic copy like 'Unlock the power', ✨ badge, 3 identical cards)",
+    "Gives the measured contrast ratio (≈2.1-2.2:1) of the #b0b0b0 grey text on the cards",
+    "Detects that the main CTA shows no keyboard focus (outline: none)",
+    "Detects the width animation of the bar and/or that prefers-reduced-motion is not respected",
+    "Generates an HTML report with screenshots of the site, written in English",
+    "Asks before applying changes and does not modify the fixtures"
+   ]
+  },
+  {
+   "id": 2,
+   "name": "portfolio-with-code-spanish",
+   "prompt": "estoy terminando mi portfolio (está en evals/fixtures/portfolio), dale un repaso al diseño antes de mandarlo a empresas, sobre todo que se vea bien en el móvil",
+   "expected_output": "Detects the 3x340px grid overflowing on mobile/tablet with file:line in styles.css, removed focus (a:focus outline none), 16px social icons, h2 used as lead, pure #000/#fff dark mode, transition all .6s linear, mix of 3 font families. Fixes in the project's CSS. The findings, the chat message and \"lang\": \"es\" are in Spanish. Asks before applying.",
+   "files": [
+    "evals/fixtures/portfolio/index.html",
+    "evals/fixtures/portfolio/styles.css"
+   ],
+   "assertions": [
+    "Detects that the project grid overflows on mobile (horizontal scroll) and treats it as critical",
+    "Attributes the overflow to grid-template-columns: repeat(3, 340px) in styles.css with a line number",
+    "Detects that focus is removed (a:focus { outline: none })",
+    "Flags the 16px social icons as tap targets that are too small",
+    "Comments on dark mode (pure black/white or the green accent with low contrast in dark)",
+    "Gives fixes in the project's own CSS (using its variables/classes)",
+    "Writes the findings and the chat message in Spanish and sets \"lang\": \"es\" in findings.json",
+    "Asks before applying changes and does not modify the fixtures"
+   ]
+  },
+  {
+   "id": 3,
+   "name": "public-site-mobile-only",
+   "prompt": "review how https://news.ycombinator.com looks on mobile, mobile only, what would you change?",
+   "expected_output": "Capture limited to mobile, critique focused on mobile (tiny tap targets, text size, density), no full desktop audit or dark mode. No offer to fix it, since it is not the user's site.",
+   "files": [],
+   "assertions": [
+    "The review focuses on mobile (does not audit desktop/tablet or dark mode as findings)",
+    "Flags small tap targets with concrete px measurements",
+    "Comments on text size / readability on mobile with concrete values",
+    "Generates an HTML report with mobile screenshots",
+    "The proposed changes are concrete (CSS values), not generic",
+    "Does not offer to apply the fixes (it is a third-party site)"
+   ]
+  }
+ ]
+}

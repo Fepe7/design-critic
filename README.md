@@ -1,0 +1,73 @@
+# design-critic
+
+**A Claude Code skill that gives Claude eyes.** It opens your website in a real browser, screenshots it on mobile, tablet and desktop, measures what can be measured, looks at the result and hands you an honest, prioritized design critique, with the exact fix for every problem.
+
+Claude writes a lot of CSS without ever seeing it render. design-critic closes the loop:
+
+**capture → look → critique with evidence → fix → look again → prove nothing broke**
+
+![The design-critic report: score, verdict, the 3 fixes to start with, and a traffic light for each area](docs/report.png)
+
+## What you get
+
+- **A report anyone can read.** Score, one-sentence verdict and the 3 fixes with the most impact per effort at the top. Problems collapse to one line each; screenshots, plain-language explanations and copy-paste code are one click away.
+- **Evidence, not opinions.** Every problem is boxed on a real screenshot. Contrast (WCAG), horizontal overflow, tap-target sizes, hover and keyboard-focus states, animations and `prefers-reduced-motion` are measured, not guessed.
+- **Before/after verification.** After applying fixes, Claude recaptures the site and compares: ✓ better / = same / ✗ regression, pixel diffs and a drag slider on each fixed problem. It exits with an error if a fix broke something else, so regressions can't slip through.
+
+  ![A fixed problem with a before/after slider](docs/before-after.png)
+- **Your language.** The critique is written in the language you speak to Claude, and the report interface comes in 16 languages: English, Spanish, French, German, Italian, Portuguese, Russian, Japanese, Korean, Hindi, Arabic, Bengali, Urdu, Indonesian, Turkish and Vietnamese (with right-to-left layout for Arabic and Urdu).
+- **Spots "AI-made" design.** The purple gradients, gradient headlines, emoji icons, three identical feature cards and "Unlock the power of…" copy that make a site look like a thousand others, and what to do instead.
+
+## Install
+
+Requirements: [Claude Code](https://claude.com/claude-code), Python 3.9+ and Playwright.
+
+```bash
+pip install playwright && python3 -m playwright install chromium
+git clone https://github.com/Fepe7/design-critic ~/.claude/skills/design-critic
+```
+
+That's it. Claude Code picks the skill up automatically.
+
+## Use
+
+Just ask, in any language:
+
+- "What do you think of my site? It's running on localhost:4321"
+- "Give me honest feedback on this landing page before I show it to the client"
+- "Does my portfolio look OK on mobile?"
+- "¿Esto parece hecho por IA?"
+
+Or call it explicitly: `/design-critic https://example.com`
+
+Claude captures the site, writes `.design-critic/<name>/report.html`, opens it and asks whether you want the fixes applied. It never touches your code without asking.
+
+## How it works
+
+| Script | What it does |
+|---|---|
+| `scripts/capture.py` | Screenshots (above the fold, slices, full page) per viewport and color scheme, hover/focus state sheet, motion frames and video, and `capture.json` with the metrics and already-interpreted alerts |
+| `scripts/build_report.py` | Turns `capture.json` + the `findings.json` Claude writes into a self-contained HTML report |
+| `scripts/compare.py` | Compares two captures, writes `comparison.json` and pixel diffs, exits with code 1 on any regression |
+| `scripts/i18n.py` | Report interface strings; add a language by copying the `en` block |
+| `references/criteria.md` | The critique rubric: concrete thresholds for hierarchy, typography, color, spacing, layout, states, motion, accessibility and AI-design tells |
+
+The scripts work on their own too:
+
+```bash
+python3 scripts/capture.py https://example.com --out .design-critic/example
+python3 scripts/compare.py .design-critic/example .design-critic/example-after
+python3 scripts/build_report.py .design-critic/example --after .design-critic/example-after
+```
+
+## Try it on the included examples
+
+`evals/fixtures/` contains two deliberately flawed sites: a landing page full of AI-design clichés and a portfolio that breaks on mobile. Point Claude at either one to see the full flow. `evals/evals.json` lists what a good critique of each should catch.
+
+## Contributing
+
+Translations are the easiest way to help: copy the `en` block in `scripts/i18n.py`, translate the values (keep the `{placeholders}`), and open a PR. Ideas for new checks and criteria are welcome too.
+
+## License
+
+MIT
