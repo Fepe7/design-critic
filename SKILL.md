@@ -22,7 +22,7 @@ Full rubric: `references/criteria.md`. Read it before critiquing; it has concret
 ## 1. Decide what to capture
 
 - **Public URL or localhost:** use it as is.
-- **Local project without a URL:** check whether a dev server is already running (`curl -sI localhost:5173`, `:3000`, `:4321`, `:8080`…). If not, look at `package.json` and start it in the background (`npm run dev`). Wait until it responds and remember to stop it at the end.
+- **Local project without a URL:** check whether a dev server already responds on the usual ports (5173, 3000, 4321, 8080…). If not, look at `package.json` and start it in the background (`npm run dev`). Wait until it responds and remember to stop it at the end.
 - **Standalone `.html` file:** pass the path; the script turns it into `file://`.
 - **Cookie banners, chats or popups covering the page:** hide them with `--hide '#cookie-banner, .intercom-launcher'`.
 
@@ -185,6 +185,6 @@ After applying the fixes (`<dir>` is the directory of the first capture):
 
 ## If something goes wrong
 
-- **The page doesn't load or is blank:** check the URL with `curl -sI`. If it's a slow SPA, try `--wait 3000`. If it requires login, tell the user: the script doesn't handle sessions.
+- **The page doesn't load or is blank:** check that the URL responds. If it's a slow SPA, try `--wait 3000`. If it requires login, tell the user: the script doesn't handle sessions.
 - **Errors in `capture.json` → `errors`:** usually states or motion failing on unusual sites. The rest of the capture is still usable.
 - **No Playwright:** the scripts need the Playwright Python package with Chromium. Don't install anything yourself: tell the user it's missing and point them to the "Install" section of the README.
