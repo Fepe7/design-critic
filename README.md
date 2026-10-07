@@ -103,6 +103,10 @@ python3 scripts/build_report.py .design-critic/example --after .design-critic/ex
 
 Translations are the easiest way to help: copy the `en` block in `scripts/i18n.py`, translate the values (keep the `{placeholders}`), and open a PR. Ideas for new checks and criteria are welcome too.
 
+## Privacy
+
+design-critic runs locally: no server, no account, no telemetry. Screenshots and reports stay in `.design-critic/` on your machine. See [PRIVACY.md](PRIVACY.md).
+
 ## License
 
 MIT
