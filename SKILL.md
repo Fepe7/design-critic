@@ -187,4 +187,4 @@ After applying the fixes (`<dir>` is the directory of the first capture):
 
 - **The page doesn't load or is blank:** check the URL with `curl -sI`. If it's a slow SPA, try `--wait 3000`. If it requires login, tell the user: the script doesn't handle sessions.
 - **Errors in `capture.json` → `errors`:** usually states or motion failing on unusual sites. The rest of the capture is still usable.
-- **No Playwright:** `pip install playwright && python3 -m playwright install chromium`.
+- **No Playwright:** the scripts need the Playwright Python package with Chromium. Don't install anything yourself: tell the user it's missing and point them to the "Install" section of the README.
