@@ -202,7 +202,7 @@ METRICS_JS = r"""
     const inline = cs.display === 'inline' && el.parentElement && ownText(el.parentElement).length > 0;
     if (!inline && (r.width < 44 || r.height < 44)) {
       small.push({selector: sel(el), w: Math.round(r.width), h: Math.round(r.height),
-        level: (r.width < 24 || r.height < 24) ? 'falla (<24px, WCAG 2.5.8)' : 'aviso (<44px)',
+        level: (r.width < 24 || r.height < 24) ? 'fail (<24px, WCAG 2.5.8)' : 'warning (<44px)',
         text: snip((el.innerText || el.getAttribute('aria-label') || '').trim(), 30), box: box(el)});
     }
     const name = (el.innerText || '').trim() || el.getAttribute('aria-label') || el.getAttribute('title') ||
@@ -212,7 +212,7 @@ METRICS_JS = r"""
   }
   const failsFirst = small.sort((a, b) => (a.level < b.level ? -1 : 1));
   out.tap_targets = {total_interactive: interactive.length, under_44: small.length,
-    under_24: small.filter(s => s.level.startsWith('falla')).length, examples: failsFirst.slice(0, 40)};
+    under_24: small.filter(s => s.level.startsWith('fail')).length, examples: failsFirst.slice(0, 40)};
   out.missing_accessible_name = noName.slice(0, LIMIT);
 
   // ---- Images
