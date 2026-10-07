@@ -48,7 +48,15 @@ Then, inside Claude Code:
 That's it. To update later: `/plugin marketplace update design-critic`.
 
 <details>
-<summary>Prefer a plain skill folder?</summary>
+<summary>Other ways to install</summary>
+
+With the [skills](https://skills.sh) CLI (it can also install into other agents that read `SKILL.md` files):
+
+```bash
+npx skills add Fepe7/design-critic -g
+```
+
+Or as a plain skill folder:
 
 ```bash
 git clone https://github.com/Fepe7/design-critic ~/.claude/skills/design-critic
