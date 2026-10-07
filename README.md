@@ -36,10 +36,26 @@ Requirements: [Claude Code](https://claude.com/claude-code), Python 3.9+ and Pla
 
 ```bash
 pip install playwright && python3 -m playwright install chromium
+```
+
+Then, inside Claude Code:
+
+```
+/plugin marketplace add Fepe7/design-critic
+/plugin install design-critic@design-critic
+```
+
+That's it. To update later: `/plugin marketplace update design-critic`.
+
+<details>
+<summary>Prefer a plain skill folder?</summary>
+
+```bash
 git clone https://github.com/Fepe7/design-critic ~/.claude/skills/design-critic
 ```
 
-That's it. Claude Code picks the skill up automatically.
+Claude Code picks it up automatically; update with `git pull`.
+</details>
 
 ## Use
 

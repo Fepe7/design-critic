@@ -1,0 +1,20 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "design-critic",
+  "description": "A Claude Code skill that screenshots your website and gives an honest, prioritized design critique, then verifies the fixes before and after.",
+  "owner": {
+    "name": "Fepe7",
+    "url": "https://github.com/Fepe7"
+  },
+  "plugins": [
+    {
+      "name": "design-critic",
+      "description": "Opens your site in a real browser, screenshots it on mobile, tablet and desktop, measures contrast, overflow, tap targets and motion, and delivers a prioritized HTML report with a fix for each problem. Verifies fixes before/after. 16 languages.",
+      "source": "./",
+      "category": "design",
+      "homepage": "https://github.com/Fepe7/design-critic",
+      "license": "MIT",
+      "skills": ["./"]
+    }
+  ]
+}

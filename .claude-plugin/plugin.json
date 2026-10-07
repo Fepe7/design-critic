@@ -1,0 +1,14 @@
+{
+  "name": "design-critic",
+  "description": "Opens your site in a real browser, screenshots it on mobile, tablet and desktop, measures contrast, overflow, tap targets and motion, and delivers a prioritized HTML report with a fix for each problem. Verifies fixes before/after. 16 languages.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Fepe7",
+    "url": "https://github.com/Fepe7"
+  },
+  "homepage": "https://github.com/Fepe7/design-critic",
+  "repository": "https://github.com/Fepe7/design-critic",
+  "license": "MIT",
+  "keywords": ["design-review", "web-design", "accessibility", "wcag", "playwright", "screenshots", "ui-ux"],
+  "skills": ["./"]
+}
