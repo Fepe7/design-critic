@@ -48,7 +48,6 @@ Just ask, in any language:
 - "What do you think of my site? It's running on localhost:4321"
 - "Give me honest feedback on this landing page before I show it to the client"
 - "Does my portfolio look OK on mobile?"
-- "¿Esto parece hecho por IA?"
 
 Or call it explicitly: `/design-critic https://example.com`
 
