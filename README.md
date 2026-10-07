@@ -18,6 +18,18 @@ Claude writes a lot of CSS without ever seeing it render. design-critic closes t
 - **Your language.** The critique is written in the language you speak to Claude, and the report interface comes in 16 languages: English, Spanish, French, German, Italian, Portuguese, Russian, Japanese, Korean, Hindi, Arabic, Bengali, Urdu, Indonesian, Turkish and Vietnamese (with right-to-left layout for Arabic and Urdu).
 - **Spots "AI-made" design.** The purple gradients, gradient headlines, emoji icons, three identical feature cards and "Unlock the power of…" copy that make a site look like a thousand others, and what to do instead.
 
+## How is this different?
+
+There are other design-review skills. Most of them ask Claude to take screenshots and judge them by eye, or expect you to paste a screenshot yourself. design-critic adds what eyes alone can't give:
+
+| | Typical design-review skill | design-critic |
+|---|---|---|
+| **Screenshots** | Taken by hand through a browser tool, or pasted by you | Scripted: 3 viewports × light/dark, page slices, hover/focus sheet, motion frames and video, in one command |
+| **Contrast, overflow, tap targets, focus, motion** | Judged by eye, or checked with external tools | Measured on every element by a script, with exact numbers to quote |
+| **After the fixes** | "Run it again" | Recaptures, compares metric by metric, shows pixel diffs and a before/after slider, and **fails if a fix broke something else** |
+| **Report** | Markdown in the chat | A self-contained HTML report a client can read: plain language first, code and selectors one click away |
+| **Language** | English | The critique in your language; report interface in 16 languages |
+
 ## Install
 
 Requirements: [Claude Code](https://claude.com/claude-code), Python 3.9+ and Playwright.
