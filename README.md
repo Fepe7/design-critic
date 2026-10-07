@@ -6,7 +6,7 @@ Claude writes a lot of CSS without ever seeing it render. design-critic closes t
 
 **capture → look → critique with evidence → fix → look again → prove nothing broke**
 
-![The design-critic report: score, verdict, the 3 fixes to start with, and a traffic light for each area](docs/report.png)
+![design-critic report: the summary, a fixed problem with its before/after slider, and the regression check](docs/demo.gif)
 
 ## What you get
 
